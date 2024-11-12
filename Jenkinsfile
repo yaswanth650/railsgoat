@@ -12,10 +12,12 @@ pipeline {
             }
         post {
          always {
-                  recordIssues tools: [brakeman(pattern: 'output.json')]
-                  recordIssues tools: [brakeman2(pattern: 'output1.json')]
-                  recordIssues tools: [brakeman3(pattern: 'brakeman_results.html')]
-                  recordIssues tools: [brakeman4(pattern: 'brakeman_results2.html')]
+                 recordIssues tools: [
+                      brakeman(pattern: 'output.json'),
+                      brakeman(pattern: 'output1.json'),
+                      brakeman(pattern: 'brakeman_results.html'),
+                      brakeman4(pattern: 'brakeman_results2.html')
+                    ]
                 }
             }
         }
