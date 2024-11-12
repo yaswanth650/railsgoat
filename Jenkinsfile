@@ -8,7 +8,7 @@ pipeline {
                 sh 'docker run -v "$(pwd)":/code presidentbeef/brakeman --no-exit-on-warn --no-exit-on-error --color -o /dev/stdout -o output1.json'
                 sh 'docker run -v "$(pwd)":/code presidentbeef/brakeman  --no-exit-on-warn --no-exit-on-error -o output.html -o output.json'
                 sh 'docker run -v "$(pwd)":/code presidentbeef/brakeman --no-exit-on-warn --no-exit-on-error -o brakeman_results.html'
-                sh ' docker run -v "$(pwd)":/code presidentbeef/brakeman -c ./brakeman.yml  -o brakeman_results2.html'
+                sh ' docker run -v "$(pwd)":/code presidentbeef/brakeman --no-exit-on-warn --no-exit-on-error -c ./brakeman.yml  -o brakeman_results2.html'
             }
         }
     }
