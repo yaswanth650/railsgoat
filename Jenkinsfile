@@ -16,7 +16,7 @@ pipeline {
                       brakeman(pattern: 'output.json'),
                       brakeman(pattern: 'output1.json'),
                       brakeman(pattern: 'brakeman_results.html'),
-                      brakeman4(pattern: 'brakeman_results2.html')
+                      brakeman(pattern: 'brakeman_results2.html')
                     ]
                 }
             }
