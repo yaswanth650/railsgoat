@@ -14,10 +14,24 @@ pipeline {
          always {
                  recordIssues tools: [
                       brakeman(id: 'brakeman1', pattern: 'output.json'),
-                      brakeman(id: 'brakeman2', pattern: 'output1.json'),
-                      brakeman(id: 'brakeman3', pattern: 'brakeman_results.html'),
-                      brakeman(id: 'brakeman4', pattern: 'brakeman_results2.html')
+                      brakeman(id: 'brakeman2', pattern: 'output1.json')
                     ]
+                 publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: '/var/lib/jenkins/workspace/BRAKEMAN',
+                    reportFiles: 'brakeman_results.html',
+                    reportName: 'BRAKEMAN1'
+                    ])
+                 publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: '/var/lib/jenkins/workspace/BRAKEMAN',
+                    reportFiles: 'brakeman_results2.html',
+                    reportName: 'BRAKEMAN2'
+                    ])
                 }
             }
         }
